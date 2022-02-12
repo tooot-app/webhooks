@@ -1,0 +1,23 @@
+{
+  "name": "tooot-webhooks-canny.io",
+  "version": "1.0.0",
+  "author": "xmflsct <me@xmflsct.com>",
+  "license": "MIT",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "build": "esbuild --bundle --format=esm --main-fields=browser,module,main --platform=browser --target=es2020 --sourcemap --minify --outfile=./dist/index.mjs ./src/index.ts",
+    "dev": "miniflare dist/index.mjs --watch",
+    "deploy": "wrangler publish --env production"
+  },
+  "dependencies": {
+    "itty-router": "^2.4.10",
+    "toucan-js": "^2.5.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.3.1",
+    "@cloudflare/wrangler": "^1.19.8",
+    "esbuild": "^0.14.20",
+    "miniflare": "^2.3.0",
+    "typescript": "^4.5.5"
+  }
+}

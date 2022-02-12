@@ -1,0 +1,17 @@
+account_id = "4b99fe044748e20b67286e12a4f239fb"
+zone_id = "aa78e8cee3c1339cebb2e9b3dac10ca9"
+compatibility_date = "2021-12-04"
+type = "javascript"
+workers_dev = false
+
+name = "tooot-webhooks-canny_io-development"
+vars = {ENVIRONMENT = "development"}
+
+[env.production]
+name = "tooot-webhooks-canny_io"
+route = "webhooks.tooot.app/canny.io/*"
+vars = {ENVIRONMENT = "production"}
+
+[build.upload]
+format = "modules"
+main = "./index.mjs"
