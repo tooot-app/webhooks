@@ -50,10 +50,23 @@ const post = async (request: Request, env: Env): Promise<Response> => {
             // @ts-ignore
             statusMapping[body.object.status]
           }`
+          const dComment = body.object.changeComment?.value
+            ? `\n\n💬 ${body.object.changeComment?.value}`
+            : ''
 
           data.append(
             'status',
-            dHash + dNewLine + dNewLine + '⏩' + dNewLine + dSuggestion + dVote
+            dHash +
+              dNewLine +
+              dNewLine +
+              '⏩' +
+              dNewLine +
+              dSuggestion +
+              (body.object.status === 'complete'
+                ? dComment
+                : body.object.status !== 'in progress'
+                ? dVote
+                : '')
           )
           break
       }
