@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      matrix: { package: ['push', 'translate'] }
+      matrix: { package: ['canny.io'] }
 
     steps:
       - name: -- Step 0 -- Checkout code
