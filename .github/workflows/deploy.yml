@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      matrix: { package: ['canny.io'] }
+      matrix: { package: ['cannyio'] }
 
     steps:
       - name: -- Step 0 -- Checkout code
@@ -30,7 +30,7 @@ jobs:
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ matrix.package }}
+          SENTRY_PROJECT: webhooks-${{ matrix.package }}
         with:
           sourcemaps: './packages/${{ matrix.package }}/dist'
           url_prefix: '/dist/'
