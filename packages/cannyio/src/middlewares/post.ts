@@ -15,21 +15,11 @@ const post = async (request: Request, env: Env): Promise<Response> => {
   const data = new FormData()
   switch (body.type) {
     case 'post.created':
-      const dUser = `「${
-        body.object.author ? body.object.author.name : '匿名用户'
-      }」`
-      const dSuggestion = `刚刚提交了建议『${body.object.title}』`
+      const dSuggestion = `用户刚刚提交了建议『${body.object.title}』`
 
       data.append(
         'status',
-        dHash +
-          dNewLine +
-          dNewLine +
-          '🆕' +
-          dNewLine +
-          dUser +
-          dSuggestion +
-          dVote
+        dHash + dNewLine + dNewLine + '🆕' + dNewLine + dSuggestion + dVote
       )
       break
     case 'post.status_changed':
