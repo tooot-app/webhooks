@@ -61,21 +61,21 @@ const post = async (request: Request, env: Env): Promise<Response> => {
           break
       }
       break
-    case 'vote.created':
-      if (body.object.post.score === 1) {
-        return new Response()
-      }
+//     case 'vote.created':
+//       if (body.object.post.score === 1) {
+//         return new Response()
+//       }
 
-      if (Math.random() > 0.3) {
-        return new Response()
-      }
+//       if (Math.random() > 0.3) {
+//         return new Response()
+//       }
 
-      const dNewVote = `建议『${body.object.post.title}』刚刚获得了一票。现在总票数为「${body.object.post.score}」`
-      data.append(
-        'status',
-        dHash + dNewLine + dNewLine + '⬆️' + dNewLine + dNewVote + dVote
-      )
-      break
+//       const dNewVote = `建议『${body.object.post.title}』刚刚获得了一票。现在总票数为「${body.object.post.score}」`
+//       data.append(
+//         'status',
+//         dHash + dNewLine + dNewLine + '⬆️' + dNewLine + dNewVote + dVote
+//       )
+//       break
   }
 
   await fetch('https://social.xmflsct.com/api/v1/statuses', {
